@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pokemon = findViewById<AutoCompleteTextView>(R.id.etMain_pokemon)
-        val resposta = findViewById<TextView>(R.id.etMain_resposta)
-        val ivpokemon = findViewById<ImageView>(R.id.ivMain_pokemon)
+        var resposta = findViewById<TextView>(R.id.etMain_resposta)
+        var ivpokemon = findViewById<ImageView>(R.id.ivMain_pokemon)
         val progress = findViewById<ProgressBar>(R.id.progressBar)
 
         val namePokemonArray = arrayOf(
@@ -116,10 +116,10 @@ class MainActivity : AppCompatActivity() {
                     val poke = response!!.body()
                     if(poke != null){
                         resposta.text = poke.toString()
-                        val URLFull = "$URL${poke.id}.png"
+                        var URLFull = "$URL${poke.id}.png"
                         DownLoadImageTask(ivpokemon).execute(URLFull)
                     }else{
-                        resposta.text = "Pokemon não encontrado!"
+                        resposta.text = "Pokemon não \nencontrado!"
                         ivpokemon.setImageBitmap(null)
                     }
                     progress.isVisible = false

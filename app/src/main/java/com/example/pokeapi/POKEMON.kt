@@ -8,7 +8,7 @@ class POKEMON {
     var height: String? = null
 
     override fun toString(): String {
-        return ("POKEMON: $name \nAltura: ${height}m   Peso: ${weight}kg")
+        return ("Altura: ${height}m   \nPeso: ${weight}kg")
     }
 
 }
